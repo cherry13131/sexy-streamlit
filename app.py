@@ -136,7 +136,7 @@ section[data-testid="stSidebar"] { display: none; }
     flex: 1;
     height: 1px;
     background: linear-gradient(90deg, #1e3a4a, transparent);
-    margin-left: 0.8rem;
+    margin-left: 0.8rem;str
 }
 
 /* ── 메트릭 카드 ── */
