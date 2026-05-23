@@ -1,137 +1,114 @@
-/* ===== 기본 설정 ===== */
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Segoe UI', sans-serif;
 }
 
 body{
     background:#f5f7fa;
-    color:#222;
-    padding:30px;
+    overflow-x:hidden;
 }
 
-/* ===== 전체 컨테이너 ===== */
-.dashboard-container{
-    max-width:1300px;
+/* ==========================
+   메인 컨테이너
+========================== */
+
+.container{
+    max-width:1400px;
     margin:auto;
+    padding:40px;
 }
 
-/* ===== 헤더 ===== */
-header{
-    margin-bottom:40px;
-}
+/* ==========================
+   상단 배너
+========================== */
 
-header h1{
-    font-size:2.3rem;
-    font-weight:700;
-    color:#222;
-    margin-bottom:8px;
-}
-
-header p{
-    color:#8b8b8b;
-    font-size:0.95rem;
-}
-
-/* =========================
-   홈 화면 카드
-========================= */
-.summary-cards{
-    display:flex;
-    gap:25px;
-    margin-bottom:35px;
-    flex-wrap:wrap;
-}
-
-.card{
-    flex:1;
-    min-width:260px;
-    background:white;
-    border-radius:35px;
-    padding:30px;
+.hero{
     position:relative;
-
-    box-shadow:
-        0 10px 30px rgba(0,0,0,0.05);
-
-    transition:0.25s;
+    width:100%;
 }
 
-.card:hover{
-    transform:translateY(-5px);
+.hero img{
+    width:100%;
+    height:700px;
+
+    object-fit:cover;
+    display:block;
 }
 
-.card h3{
-    color:#9aa0a6;
-    font-size:1rem;
-    margin-bottom:15px;
-    font-weight:500;
-}
+/* 하단 그라데이션 */
 
-.card .value{
-    font-size:2.5rem;
-    font-weight:700;
-    color:#29b6d8;
-}
-
-.card .sub{
-    margin-top:10px;
-    color:#888;
-    font-size:0.9rem;
-}
-
-/* 카드 오른쪽 장식 */
-.card::after{
+.hero::after{
     content:"";
-    width:90px;
-    height:90px;
-    background:rgba(41,182,216,0.08);
 
     position:absolute;
-    right:-20px;
-    top:-20px;
 
-    border-radius:50%;
+    left:0;
+    bottom:0;
+
+    width:100%;
+    height:250px;
+
+    background:
+    linear-gradient(
+        to bottom,
+        rgba(245,247,250,0) 0%,
+        rgba(245,247,250,1) 100%
+    );
 }
 
-/* =========================
-   그래프 영역
-========================= */
-.charts-section{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(420px,1fr));
-    gap:25px;
+.hero-overlay{
+    position:absolute;
+
+    top:40%;
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    width:80%;
+
+    text-align:center;
+
+    z-index:2;
 }
 
-/* 그래프 카드 */
-.chart-box{
-    background:white;
-    border-radius:35px;
-    padding:30px;
-    box-shadow:
-        0 10px 30px rgba(0,0,0,0.05);
+.hero-overlay h1{
 
-    min-height:420px;
+    color:white;
+
+    font-size:3rem;
+
+    font-weight:700;
+
+    margin-bottom:20px;
 }
 
-.chart-box h2{
-    font-size:1.3rem;
-    margin-bottom:25px;
-    color:#222;
+.hero-overlay p{
+
+    color:white;
+
+    font-size:1.1rem;
+
+    line-height:1.8;
 }
 
-/* =========================
-   원형 프로그래스 카드
-========================= */
+/* ==========================
+   원형 그래프
+========================== */
+
+.analysis-section{
+    margin-bottom:80px;
+}
 
 .progress-wrapper{
+
     display:flex;
+
     justify-content:center;
-    gap:40px;
+
+    gap:150px;
+
     flex-wrap:wrap;
-    margin-top:20px;
 }
 
 .progress-card{
@@ -139,95 +116,151 @@ header p{
 }
 
 .progress-title{
-    font-size:1rem;
-    color:#777;
+
+    font-size:1.1rem;
+
     margin-bottom:20px;
 }
 
-/* 원형 */
 .circle{
-    width:180px;
-    height:180px;
+
+    width:190px;
+    height:190px;
+
     border-radius:50%;
 
     display:flex;
     align-items:center;
     justify-content:center;
 
-    font-size:2rem;
-    font-weight:bold;
-    color:#333;
-
     position:relative;
 }
 
-/* 안쪽 원 */
 .circle::before{
-    content:"";
-    position:absolute;
 
-    width:135px;
-    height:135px;
+    content:"";
+
+    width:145px;
+    height:145px;
+
     background:white;
 
     border-radius:50%;
+
+    position:absolute;
 }
 
-/* 텍스트 위로 */
 .circle span{
+
     position:relative;
+
     z-index:2;
+
+    font-size:2rem;
+
+    font-weight:700;
 }
 
-/* 파란색 */
 .blue{
     background:
     conic-gradient(
-        #42c5e9 0%,
-        #42c5e9 100%,
-        #eaeaea 100%
+        #42c5e9 78%,
+        #e8e8e8 78%
     );
 }
 
-/* 초록색 */
 .green{
     background:
     conic-gradient(
-        #9be048 0%,
-        #9be048 100%,
-        #eaeaea 100%
+        #7ed957 91%,
+        #e8e8e8 91%
     );
 }
 
-/* =========================
-   반응형
-========================= */
+.orange{
+    background:
+    conic-gradient(
+        #ffb74d 85%,
+        #e8e8e8 85%
+    );
+}
+
+/* ==========================
+   카드
+========================== */
+
+.card-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:30px;
+}
+
+.info-card{
+
+    background:white;
+
+    height:120px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    transition:.3s;
+
+    box-shadow:
+    0 5px 20px rgba(0,0,0,.05);
+}
+
+.info-card:hover{
+
+    transform:translateY(-5px);
+}
+
+.info-card h3{
+
+    font-size:1.3rem;
+
+    font-weight:600;
+}
+
+/* ==========================
+   모바일
+========================== */
 
 @media(max-width:768px){
 
-    body{
-        padding:15px;
+    .hero img{
+        height:400px;
     }
 
-    .summary-cards{
-        flex-direction:column;
+    .hero-overlay h1{
+        font-size:2rem;
     }
 
-    .charts-section{
+    .hero-overlay p{
+        font-size:0.95rem;
+    }
+
+    .progress-wrapper{
+        gap:60px;
+    }
+
+    .card-grid{
         grid-template-columns:1fr;
     }
 
-    .chart-box{
-        min-width:100%;
+    .container{
+        padding:20px;
     }
 
-    .circle{
-        width:150px;
-        height:150px;
-    }
-
-    .circle::before{
-        width:110px;
-        height:110px;
-    }
 }
