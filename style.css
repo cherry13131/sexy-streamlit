@@ -43,68 +43,135 @@ body {
 /* ===================================
    히어로 배너
    =================================== */
-.hero {
+.hero-new {
     position: relative;
+    min-height: 100vh;
     width: 100%;
-    height: 420px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     overflow: hidden;
+    background-color: #ffffff;
 }
 
-.hero img {
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.hero-svg {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    display: block;
-    filter: brightness(0.55);
-}
-
-.hero-overlay {
+    color: #020617;
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
     text-align: center;
     padding: 0 24px;
-    background: linear-gradient(
-        180deg,
-        rgba(26, 35, 50, 0.3) 0%,
-        rgba(26, 35, 50, 0.7) 100%
-    );
+    max-width: 900px;
+    margin: 0 auto;
 }
 
-.hero-overlay h1 {
-    font-size: 48px;
-    font-weight: 900;
-    color: #ffffff;
-    margin-bottom: 16px;
-    letter-spacing: -1px;
-    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.3);
-    animation: fadeInUp 0.8s ease-out;
+.hero-new h1 {
+    font-size: 5rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    letter-spacing: -0.05em;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
-.hero-overlay p {
-    font-size: 18px;
-    font-weight: 300;
-    color: rgba(255, 255, 255, 0.9);
-    max-width: 600px;
+.title-word {
+    display: inline-block;
+}
+
+.title-letter {
+    display: inline-block;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-image: linear-gradient(to right, #171717, rgba(64, 64, 64, 0.8));
+    opacity: 0; /* Animation handles the rest */
+}
+
+.hero-desc {
+    font-size: 1.125rem;
+    color: #4b5563;
     line-height: 1.8;
-    animation: fadeInUp 0.8s ease-out 0.2s both;
+    margin-bottom: 3rem;
+    animation: fadeInUp 2s ease-out forwards;
+    opacity: 0;
 }
 
 @keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(24px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes drawPath {
+    0% { stroke-dashoffset: 1; opacity: 0.3; }
+    50% { stroke-dashoffset: 0.5; opacity: 0.6; }
+    100% { stroke-dashoffset: 0; opacity: 0.3; }
+}
+
+.hero-btn-container {
+    display: inline-block;
+    position: relative;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.05), rgba(255,255,255,0.05));
+    padding: 1px;
+    border-radius: 1.5rem;
+    backdrop-filter: blur(16px);
+    overflow: hidden;
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+    animation: fadeInUp 2.5s ease-out forwards;
+    opacity: 0;
+}
+
+.hero-btn {
+    border-radius: 1.45rem;
+    padding: 24px 32px;
+    font-size: 1.125rem;
+    font-weight: 600;
+    background-color: rgba(255,255,255,0.95);
+    color: #000;
+    border: 1px solid rgba(0,0,0,0.1);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s;
+}
+
+.hero-btn:hover {
+    background-color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+}
+
+.hero-btn .btn-text {
+    opacity: 0.9;
+    transition: opacity 0.3s;
+}
+
+.hero-btn:hover .btn-text {
+    opacity: 1;
+}
+
+.hero-btn .btn-arrow {
+    margin-left: 12px;
+    opacity: 0.7;
+    transition: all 0.3s;
+}
+
+.hero-btn:hover .btn-arrow {
+    opacity: 1;
+    transform: translateX(6px);
 }
 
 /* ===================================
@@ -811,17 +878,12 @@ footer {
 }
 
 @media(max-width:768px){
-
-    .hero img{
-        height:400px;
+    .hero-new h1 {
+        font-size: 3rem;
     }
 
-    .hero-overlay h1{
-        font-size:2rem;
-    }
-
-    .hero-overlay p{
-        font-size:0.95rem;
+    .hero-desc {
+        font-size: 0.95rem;
     }
 
     .progress-wrapper{

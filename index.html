@@ -11,23 +11,25 @@
 <body>
 
     <!-- 상단 배너 -->
+    <section id="hero" class="hero-new">
+        <div class="hero-bg" id="hero-bg"></div>
 
-    <section class="hero">
-
-        <img src="school.jpg" alt="학교 이미지">
-
-        <div class="hero-overlay">
-
-            <h1>에너지 대시보드</h1>
-
-            <p>
-            학교의 전기, 수도, 가스 사용량을 알려주는 대시보드입니다. <br>
-            실제 사용량을 시각적으로 확인하고, 에너지 소비에 관한 지식 함양 도움을 통해<br>
-            학생들의 적극적인 에너지 절약을 위한 긍정적인 영향을 미치는 것이 목표입니다.
+        <div class="hero-content">
+            <h1 id="hero-title">에너지 대시보드</h1>
+            
+            <p class="hero-desc">
+                학교의 전기, 수도, 가스 사용량을 알려주는 대시보드입니다. <br>
+                실제 사용량을 시각적으로 확인하고, 에너지 소비에 관한 지식 함양 도움을 통해<br>
+                학생들의 적극적인 에너지 절약을 위한 긍정적인 영향을 미치는 것이 목표입니다.
             </p>
 
+            <div class="hero-btn-container">
+                <button class="hero-btn" onclick="document.querySelector('.container').scrollIntoView({behavior: 'smooth'})">
+                    <span class="btn-text">Discover Excellence</span>
+                    <span class="btn-arrow">→</span>
+                </button>
+            </div>
         </div>
-
     </section>
 
     <div class="container">
@@ -210,5 +212,74 @@
         <p>© 2026 학교 자원 모니터링 시스템. All rights reserved.</p>
     </footer>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const renderPaths = (position) => {
+                const svgNS = "http://www.w3.org/2000/svg";
+                const svg = document.createElementNS(svgNS, "svg");
+                svg.setAttribute("viewBox", "0 0 696 316");
+                svg.setAttribute("fill", "none");
+                svg.classList.add("hero-svg");
+                
+                for (let i = 0; i < 36; i++) {
+                    const path = document.createElementNS(svgNS, "path");
+                    const d = `M-${380 - i * 5 * position} -${189 + i * 6}C-${380 - i * 5 * position} -${189 + i * 6} -${312 - i * 5 * position} ${216 - i * 6} ${152 - i * 5 * position} ${343 - i * 6}C${616 - i * 5 * position} ${470 - i * 6} ${684 - i * 5 * position} ${875 - i * 6} ${684 - i * 5 * position} ${875 - i * 6}`;
+                    
+                    path.setAttribute("d", d);
+                    path.setAttribute("stroke", "currentColor");
+                    path.setAttribute("stroke-width", 0.5 + i * 0.03);
+                    path.setAttribute("stroke-opacity", 0.1 + i * 0.03);
+                    svg.appendChild(path);
+                }
+                return svg;
+            };
+
+            const container = document.getElementById("hero-bg");
+            if (container) {
+                container.appendChild(renderPaths(1));
+                container.appendChild(renderPaths(-1));
+
+                const paths = container.querySelectorAll("path");
+                paths.forEach(path => {
+                    path.setAttribute("pathLength", "1");
+                    path.style.strokeDasharray = "0.3 0.7";
+                    const duration = 20 + Math.random() * 10;
+                    path.style.animation = `drawPath ${duration}s linear infinite`;
+                    path.style.willChange = "stroke-dashoffset, opacity";
+                });
+            }
+
+            const titleContainer = document.getElementById("hero-title");
+            if (titleContainer) {
+                const text = titleContainer.textContent;
+                titleContainer.innerHTML = "";
+                const words = text.split(" ");
+                
+                words.forEach((word, wordIndex) => {
+                    const wordSpan = document.createElement("span");
+                    wordSpan.className = "title-word";
+                    if (wordIndex < words.length - 1) wordSpan.style.marginRight = "16px";
+                    
+                    word.split("").forEach((letter, letterIndex) => {
+                        const letterSpan = document.createElement("span");
+                        letterSpan.className = "title-letter";
+                        letterSpan.textContent = letter;
+                        wordSpan.appendChild(letterSpan);
+                        
+                        letterSpan.animate([
+                            { transform: 'translateY(100px)', opacity: 0 },
+                            { transform: 'translateY(0)', opacity: 1 }
+                        ], {
+                            duration: 1000,
+                            delay: (wordIndex * 100 + letterIndex * 30),
+                            fill: 'forwards',
+                            easing: 'cubic-bezier(0.34, 1.56, 0.64, 1)'
+                        });
+                    });
+                    titleContainer.appendChild(wordSpan);
+                });
+            }
+        });
+    </script>
 </body>
 </html>
