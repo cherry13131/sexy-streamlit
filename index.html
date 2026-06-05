@@ -4,34 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>에너지 대시보드</title>
-
-    <link rel="stylesheet" href="style.css?v=60">
+    <link rel="stylesheet" href="style.css?v=62">
 </head>
-
 <body>
-    <!-- 전역 배경 애니메이션 (Hero + 하단 섹션 통합) -->
     <div class="hero-bg" id="hero-bg"></div>
 
-    <!-- 상단 배너 -->
     <section id="hero" class="hero-new">
         <div class="hero-content">
             <h1 id="hero-title">에너지 대시보드</h1>
-            
             <p class="hero-desc">
                 학교의 전기, 수도, 가스 사용량을 알려주는 대시보드입니다.<br>
                 실제 사용량을 시각적으로 확인하고, 에너지 소비에 관한<br>
                 지식 함양 도움을 통해 학생들의 적극적인<br>
-                에너지 절약을 위한 긍정적인 영향을<br>
-                미치는 것이 목표입니다.
+                에너지 절약을 위한 긍정적인 영향을 미치는 것이 목표입니다.
             </p>
         </div>
-        <!-- 우측 반원 이미지 -->
         <div class="hero-image-halfcircle"></div>
     </section>
 
     <div class="container">
-
-        <!-- 기능 카드 섹션 (FeatureGrid 스타일) -->
         <section class="feature-section">
             <div class="feature-header">
                 <h2>상세 모니터링</h2>
@@ -64,60 +55,41 @@
 
         <section class="analysis-section">
             <div class="progress-wrapper">
-                </div>
-        </section> <div class="action-area" style="text-align: center; margin-bottom: 40px;">
-            <button class="btn-primary" onclick="location.href='saving-tips.html'">
-                🌱 실천 가능한 자원 절약 방법 보기
-            </button>
-        </div>
-
-
-        <section class="eco-tree-section"> <div class="eco-tree-layout">
-                </div>
-        </section>
-
-
-        <!-- 원형 그래프 -->
-        <section class="analysis-section">
-
-            <div class="progress-wrapper">
-
                 <div class="progress-card">
                     <div class="progress-title">전기</div>
                     <div class="circle blue">
                         <span>78%</span>
                     </div>
                 </div>
-
                 <div class="progress-card">
                     <div class="progress-title">수도</div>
                     <div class="circle green">
                         <span>91%</span>
                     </div>
                 </div>
-
                 <div class="progress-card">
                     <div class="progress-title">가스</div>
                     <div class="circle orange">
                         <span>85%</span>
                     </div>
                 </div>
-
             </div>
-
         </section>
 
-        <!-- 에코 트리 모니터링 섹션 -->
+        <div class="action-area">
+            <button class="btn-primary" onclick="location.href='saving-tips.html'">
+                🌱 실천 가능한 자원 절약 방법 보기
+            </button>
+        </div>
+
         <section class="eco-tree-section">
             <div class="eco-tree-layout">
-                <!-- 왼쪽: 제목 및 글씨 -->
                 <div class="eco-tree-text-area">
                     <h2>자원 절약<br>친환경 기여도</h2>
                     <p class="description">
                         학교의 월간 전기, 수도, 가스 총 지출 비용을 
                         친환경 나무 식재 기여도로 환산한 에코 그래프입니다.<br><br>
-                        여러분의 절약이 얼마나 많은 나무를 
-                        심을 수 있는지 확인해보세요.
+                        여러분의 절약이 얼마나 많은 나무를 심을 수 있는지 확인해보세요.
                     </p>
                     <div class="eco-stats">
                         <div class="stat-box">
@@ -131,7 +103,6 @@
                     </div>
                 </div>
 
-                <!-- 오른쪽: 나무 그래프 -->
                 <div class="eco-tree-graphic-area">
                     <svg id="single-tree-svg" viewBox="70 60 360 430" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
                         <defs>
@@ -143,58 +114,36 @@
                                 <stop offset="0%" stop-color="#a3e635" />
                                 <stop offset="100%" stop-color="#65a30d" />
                             </linearGradient>
-
                             <linearGradient id="outlineGrad" x1="0" y1="90" x2="0" y2="460" gradientUnits="userSpaceOnUse">
                                 <stop offset="0%" stop-color="#65a30d" />
                                 <stop offset="100%" stop-color="#3f6212" />
                             </linearGradient>
-
                             <clipPath id="clip-canopy">
                                 <path d="M 250,350 A 60 60 0 0 1 150,290 A 65 65 0 0 1 160,190 A 100 100 0 0 1 340,190 A 65 65 0 0 1 350,290 A 60 60 0 0 1 250,350 Z" />
                             </clipPath>
-
                             <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
                                 <feDropShadow dx="0" dy="10" stdDeviation="15" flood-color="#000" flood-opacity="0.08" />
                             </filter>
                         </defs>
-
-                        <!-- Canopy Background -->
                         <path d="M 250,350 A 60 60 0 0 1 150,290 A 65 65 0 0 1 160,190 A 100 100 0 0 1 340,190 A 65 65 0 0 1 350,290 A 60 60 0 0 1 250,350 Z" fill="#ffffff" filter="url(#softShadow)" />
-
-                        <!-- Liquid Fill Area -->
                         <g clip-path="url(#clip-canopy)">
-                            <!-- Inner soft background -->
                             <rect x="0" y="0" width="500" height="550" fill="#f4fce3" />
-                            
-                            <!-- Wave container -->
                             <g class="wave-container" transform="translate(0, 190)">
-                                <!-- Wave Back -->
                                 <path class="wave-path wave-back" d="M -100,0 C 25,-20 125,20 250,0 C 375,-20 475,20 600,0 C 725,-20 825,20 950,0 V 550 H -100 Z" fill="url(#liquidGradBack)" opacity="0.7" />
-                                <!-- Wave Front -->
                                 <path class="wave-path wave-front" d="M -100,0 C 25,20 125,-20 250,0 C 375,20 475,-20 600,0 C 725,-20 825,20 950,0 V 550 H -100 Z" fill="url(#liquidGrad)" />
                             </g>
                         </g>
-
-                        <!-- Base -->
                         <path d="M 190,460 L 310,460" fill="none" stroke="url(#outlineGrad)" stroke-width="16" stroke-linecap="round" />
-                        
-                        <!-- Trunk and Branches (Shortened) -->
                         <path d="M 250,460 L 250,330 L 215,295 M 250,330 L 285,295" fill="none" stroke="url(#outlineGrad)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" />
-
-                        <!-- Canopy Border -->
                         <path d="M 250,350 A 60 60 0 0 1 150,290 A 65 65 0 0 1 160,190 A 100 100 0 0 1 340,190 A 65 65 0 0 1 350,290 A 60 60 0 0 1 250,350 Z" fill="none" stroke="url(#outlineGrad)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" />
-
-                        <!-- Text inside Canopy -->
                         <text x="250" y="240" class="tree-text-num" text-anchor="middle">28그루</text>
                         <text x="250" y="285" class="tree-text-desc" text-anchor="middle">에코 기여도</text>
                     </svg>
                 </div>
             </div>
         </section>
-
     </div>
 
-    <!-- 푸터 -->
     <footer>
         <p>© 2026 학교 자원 모니터링 시스템. All rights reserved.</p>
     </footer>
@@ -206,19 +155,17 @@
                 const svg = document.createElementNS(svgNS, "svg");
                 svg.setAttribute("viewBox", "0 0 696 316");
                 svg.setAttribute("fill", "none");
-                svg.setAttribute("overflow", "visible"); /* viewBox 밖으로 선이 이어지도록 추가 */
+                svg.setAttribute("overflow", "visible");
                 svg.classList.add("hero-svg");
                 
                 for (let i = 0; i < 25; i++) {
-                    const idx = i * 1.4; // 선 간격을 적절히 조절
+                    const idx = i * 1.4;
                     const path = document.createElementNS(svgNS, "path");
                     const d = `M-${380 - idx * 5 * position} -${189 + idx * 6}C-${380 - idx * 5 * position} -${189 + idx * 6} -${312 - idx * 5 * position} ${216 - idx * 6} ${152 - idx * 5 * position} ${343 - idx * 6}C${616 - idx * 5 * position} ${470 - idx * 6} ${684 - idx * 5 * position} ${875 - idx * 6} ${684 - idx * 5 * position} ${875 - idx * 6}`;
                     
                     path.setAttribute("d", d);
                     path.setAttribute("stroke", "currentColor");
                     path.setAttribute("stroke-width", 0.5 + idx * 0.03);
-                    // 밑에 깔리는 선(i가 작음)일수록 진하게(0.37), 
-                    // 위에 덮이는 바깥쪽 선(i가 큼)일수록 연하게(0.02) 처리
                     path.setAttribute("stroke-opacity", 0.02 + Math.pow((24 - i) / 24, 2) * 0.35);
                     svg.appendChild(path);
                 }
@@ -272,7 +219,6 @@
                 });
             }
 
-            // 그리드 전체 마우스 추적 (배경 후광 효과용)
             const featureGrid = document.querySelector(".feature-grid");
             if (featureGrid) {
                 document.addEventListener("mousemove", e => {
