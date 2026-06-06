@@ -14,8 +14,8 @@
 
         <div class="page-header">
             <div>
-                <h1>💧 수도 사용량 모니터링</h1>
-                <p>실시간 수도 사용 현황 대시보드</p>
+                <h1>💧 수도 연간 모니터링</h1>
+                <p>2025년 연간 수도 사용 대시보드</p>
             </div>
             <a href="index.html" class="back-btn">← 메인으로</a>
         </div>
@@ -24,52 +24,41 @@
             <div class="card">
                 <div class="icon-box green"><i class="fas fa-tint"></i></div>
                 <div class="card-info">
-                    <h3>현재 수도 사용량</h3>
-                    <div class="value green-text">781 <span>L</span></div>
-                    <div class="sub-text gray-text"><span class="dot green"></span> 안정적인 사용량 유지 중</div>
+                    <h3>수도 사용량</h3>
+                    <div class="value green-text">6,152  <span>L</span></div>
                 </div>
             </div>
 
             <div class="card">
                 <div class="icon-box teal"><i class="fas fa-chart-line"></i></div>
                 <div class="card-info">
-                    <h3>오늘 누적 사용량</h3>
-                    <div class="value teal-text">5,120 <span>L</span></div>
-                    <div class="sub-text gray-text"><span class="dot green"></span> 전일 대비 -3%</div>
+                    <h3>사용 요금</h3>
+                    <div class="value teal-text">11,448,500 <span>원</span></div>
                 </div>
             </div>
 
             <div class="card">
                 <div class="icon-box green"><i class="fas fa-leaf"></i></div>
                 <div class="card-info">
-                    <h3>절약 효율</h3>
-                    <div class="value green-text">91 <span>%</span></div>
-                    <div class="sub-text gray-text"><i class="far fa-calendar-check"></i> 이번 주 기준</div>
+                    <h3>전기 사용으로 발생된 이산화탄소</h3>
+                    <div class="value green-text">약 2,042 <span>kg</span></div>
                 </div>
             </div>
         </div>
 
         <div class="bottom-sections">
             <div class="chart-card">
-                <h3>수도 상태 분석</h3>
-                <div class="donut-container">
-                    <div class="donut-item">
-                        <h4>사용률</h4>
-                        <div class="chart-wrapper">
-                            <canvas id="waterDonut"></canvas>
-                            <div class="center-text">
-                                <strong>91%</strong>
-                                <span>상태 매우 양호</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <h3>발생된 이산화 탄소를 정화하기 위해 필요한 나무 : 약 3,713 그루</h3>
+                <h3>6,152 L의 물을 사용하기 위해 납부한 11,448,500원은 영양실조 위험에 처한 아이들에게 총 22,897끼니의 식사를 제공할 수 있는 금액 입니다</h3>
+                    
+                        
+                
             </div>
 
             <div class="line-chart-box">
                 <div class="line-header">
-                    <h3>수도 사용량 추이 <span>(L)</span></h3>
-                    <div class="badge"><span class="dot green"></span> 실시간</div>
+                    <h3>물 사용량 추이 <span>(L)</span></h3>
+                    
                 </div>
                 <div class="canvas-container">
                     <canvas id="waterLine"></canvas>
@@ -79,6 +68,7 @@
 
     </div>
 
+
     <footer>
         <p>© 2026 학교 자원 모니터링 시스템. All rights reserved.</p>
     </footer>
@@ -86,24 +76,7 @@
     <script>
         Chart.defaults.font.family = "'Noto Sans KR', sans-serif";
 
-        // 도넛 차트
-        new Chart(document.getElementById('waterDonut').getContext('2d'), {
-            type: 'doughnut',
-            data: {
-                datasets: [{
-                    data: [91, 9],
-                    backgroundColor: ['#7dc242', '#eff7e9'],
-                    borderWidth: 0,
-                    borderRadius: 10
-                }]
-            },
-            options: {
-                cutout: '80%',
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: { tooltip: { enabled: false } }
-            }
-        });
+    
 
         // 라인 차트
         const ctx = document.getElementById('waterLine').getContext('2d');
@@ -114,9 +87,9 @@
         new Chart(ctx, {
             type: 'line',
             data: {
-                labels: ['00:00', '04:00', '08:00', '12:00', '16:00', '20:00', '24:00'],
+                labels: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
                 datasets: [{
-                    data: [450, 650, 920, 780, 750, 700, 520],
+                    data: [276, 915, 1210, 1024, 1127, 1022, 628, 750, 820, 910, 880, 450],
                     borderColor: '#7dc242',
                     backgroundColor: gradient,
                     fill: true,
@@ -133,7 +106,7 @@
                 plugins: { legend: { display: false } },
                 scales: {
                     x: { grid: { display: false }, ticks: { color: '#9ca3af', font: { size: 11 } } },
-                    y: { min: 0, max: 1000, grid: { color: '#f3f4f6' }, ticks: { color: '#9ca3af', stepSize: 250 } }
+                    y: { min: 0, max: 1500, grid: { color: '#f3f4f6' }, ticks: { color: '#9ca3af', stepSize: 50 } }
                 },
                 elements: { point: { radius: 3 } }
             }
