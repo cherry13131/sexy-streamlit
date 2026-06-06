@@ -177,9 +177,19 @@
                 gap: 24px;
             }
 
-            .roadmap-path {
-                display: none; /* 모바일에서는 선 숨김 */
-            }
+            /* 모바일에서는 PC 느낌을 살려 예쁜 세로 물결선으로 변경 */
+        .roadmap-path {
+            display: block; 
+            width: 60px; /* 물결이 칠 공간 */
+            /* CSS로 직접 그린 꼬불꼬불한 물결 S자 SVG (그림자 포함) */
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='120' viewBox='0 0 60 120'%3E%3Cpath d='M 30 0 Q 55 30 30 60 Q 5 90 30 120' fill='none' stroke='%23bbf7d0' stroke-width='16' stroke-linecap='round'/%3E%3Cpath d='M 30 0 Q 55 30 30 60 Q 5 90 30 120' fill='none' stroke='%234ade80' stroke-width='8' stroke-linecap='round'/%3E%3C/svg%3E");
+            background-repeat: repeat-y; /* 세로로 무한 반복 */
+            background-position: center top;
+        }
+
+        .roadmap-path svg {
+            display: none; /* PC용 가로로 넓은 SVG는 숨김 */
+        }
 
             .roadmap-content, .roadmap-item.left .roadmap-content {
                 flex: auto;
@@ -203,7 +213,7 @@
     </div>
 
     <div class="roadmap-header">
-        <h1>🌱 자원 절약, 씨앗에서 다시 숲으로</h1>
+        <h1>🌱 자원을 절약하는 방법</h1>
         <p>우리 학교의 작은 실천이 모여 큰 숲을 만듭니다. 구불구불한 길을 따라 절약 방법을 알아보세요.</p>
     </div>
 
@@ -248,12 +258,12 @@
             </div>
             <div class="roadmap-content">
                 <h2><span style="background:#fffbeb;color:#d97706">STEP 1</span><br>전기 에너지 다이어트</h2>
-                <p>학교에서 소비되는 가장 큰 에너지, 바로 전기입니다. 무심코 켜둔 전등과 컴퓨터 전원만 꺼도 큰 변화를 만들 수 있습니다.</p>
+                <p>학교에서 소비되는 가장 큰 에너지, 바로 전기입니다. 무심코 켜둔 전등만 꺼도 큰 변화를 만들 수 있습니다.</p>
                 <ul class="roadmap-tips">
-                    <li>교실 이동 수업 시 반드시 소등하기</li>
-                    <li>사용하지 않는 컴퓨터, 프로젝터 전원 끄기</li>
-                    <li>복도, 화장실 등 공용 공간의 불필요한 조명 끄기</li>
-                    <li>여름/겨울철 적정 실내 온도(26℃/20℃) 유지하기</li>
+                    <li>•교실 이동 수업 시 반드시 소등하기</li>
+                    <li>•사용하지 않는 에어컨 끄기</li>
+                    <li>•복도, 화장실 등 공용 공간의 불필요한 조명 끄기</li>
+                    <li>•여름/겨울철 적정 실내 온도(26℃/20℃) 유지하기</li>
                 </ul>
             </div>
         </div>
@@ -289,9 +299,9 @@
                 <h2><span style="background:#f0f9ff;color:#0284c7">STEP 2</span><br>소중한 물방울 지키기</h2>
                 <p>우리가 매일 쓰는 물도 에너지를 소모하여 정수됩니다. 물을 아끼는 것은 수자원 보호와 탄소 배출 감소로 이어집니다.</p>
                 <ul class="roadmap-tips">
-                    <li>양치할 때 개인 컵 사용하기 </li>
-                    <li>손에 비누칠을 할 때는 수도꼭지 잠그기</li>
-                    <li>물이 새는 화장실이나 세면대 발견 시 수리 요청</li>
+                    <li>양치할 때 개인 컵 사용하기•</li>
+                    <li>손에 비누칠을 할 때는 수도꼭지 잠그기•</li>
+                    <li>정수기 물로 장난 치지 않기•</li>
                 
                 </ul>
             </div>
@@ -328,10 +338,10 @@
                 <h2><span style="background:#fff7ed;color:#ea580c">STEP 3</span><br>난방과 가스 알뜰 사용</h2>
                 <p>화석 연료 사용은 탄소 배출의 주범입니다. 체감 온도를 높이는 작은 습관으로 보일러 가동을 줄일 수 있습니다.</p>
                 <ul class="roadmap-tips">
-                    <li>겨울철 덧옷 입기로 체감온도 3℃ 높이기</li>
-                    <li>난방기 가동 시 창문과 문을 꼭 닫아 열 손실 막기</li>
-                    <li>쉬는 시간 주기적인 환기로 공기 순환 효율 높이기</li>
-                    <li>불필요한 온수 낭비 줄이기</li>
+                    <li>•겨울철 덧옷 입기로 체감온도 3℃ 높이기</li>
+                    <li>•난방기 가동 시 창문과 문을 꼭 닫아 열 손실 막기</li>
+                    <li>•쉬는 시간 주기적인 환기로 공기 순환 효율 높이기</li>
+                    <li>•불필요한 온수 낭비 줄이기</li>
                 </ul>
             </div>
         </div>
