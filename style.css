@@ -653,6 +653,37 @@ body {
     margin-bottom: 30px;
 }
 
+.chart-card.text-content-card {
+    justify-content: center;
+    gap: 20px;
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    border: 1px solid rgba(0,0,0,0.03);
+}
+
+.chart-card .highlight-title {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--text-main);
+    line-height: 1.4;
+    margin-bottom: 0;
+    letter-spacing: -0.02em;
+    word-break: keep-all;
+}
+
+.chart-card .highlight-title::before {
+    content: '🌲';
+    margin-right: 8px;
+}
+
+.chart-card .highlight-desc {
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: var(--text-sub);
+    line-height: 1.7;
+    margin: 0;
+    word-break: keep-all;
+}
+
 /* 도넛 차트 */
 .donut-container {
     display: flex;
